@@ -1,0 +1,23 @@
+{
+  "name": "COVIDTrackr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mythicalbadger/COVIDTrackr.git"
+  },
+  "keywords": [],
+  "author": "Justin Copeland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mythicalbadger/COVIDTrackr/issues"
+  },
+  "homepage": "https://github.com/mythicalbadger/COVIDTrackr#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
