@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css" />
 </head>
 <body style="background: white;">
-    <h1>COVIDTrackr</h1>
-    <div class="daily">
-        <h2>Daily Cases: <span id="daily-cases"></span></h2>
+
+    <video playsinline autoplay muted loop id="background-video">
+        <source src="./network.mp4" type="video/mp4">
+    </video>
+
+    <div class="content">
+        <div class="header-div">
+            <h1 class="animate__animated animate__fadeIn animate__slower" id="header"><span style="color: rgb(125, 209, 235); font-family:Gotham">COVID</span>Trackr</h1>
+            <div class="grid-container">
+                <div class="stats" style="background-color: white;">
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"></span><i><b>Daily cases</b></i><br /><span id="daily-cases" class="red-span"></span></p>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Daily deaths</b></i><br /><span id="daily-deaths" class="red-span"></span></p>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Total cases</b></i><br /><span id="total-cases" class="red-span"></span></p>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Total deaths</b></i><br /><span id="total-deaths" class="red-span"></span></p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 5px; margin-bottom: 0; font-size: 15px;">As of <span id="last-updated"></span></p>
+            <a href="./graph.html"><img src="graph.png"/></a>
+            
+        </div>
+        
     </div>
+    
 </body>
 </html>
