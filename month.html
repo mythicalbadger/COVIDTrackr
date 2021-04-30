@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Graphs</title>
+    <link rel="stylesheet" type="text/css" href="graph.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" type="text/javascript"></script>
+    <script src="getcases.js" type="javascript"></script>
+</head>
+<body>
+    <p><a href="./index.html">Return to main page</a></p>
+
+    <canvas id="myChart"></canvas>
+    <script>
+
+        var dates = [];
+        var cases = [];
+
+        fetch("https://covid19.th-stat.com/api/open/timeline")
+        .then(result => result.json())
+        .then(json => {
+            for (var i = 0; i < json["Data"].length; i++) {
+                if (json["Data"][i]["Date"].split("/")[0] == "04" && json["Data"][i]["Date"].split("/")[2] == "2021") {
+                    dates.push(json["Data"][i]["Date"]);
+                    cases.push(json["Data"][i]["NewConfirmed"]);
+                }
+            }
+        }).then(() => {
+            const data = {
+                labels: dates,
+                datasets: [{
+                    label: 'Cases',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: cases,
+                }]
+            };
+            const config = {
+                type: 'line',
+                data,
+                options: {}
+            };
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+        })
+
+        
+    </script>
+</body>
+</html>
