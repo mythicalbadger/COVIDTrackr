@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
 
-* {
-    font-family: "Times New Roman";
-}
 
 html {
     scroll-behavior: smooth;
@@ -36,7 +33,9 @@ img {
     position: absolute;
     justify-content: center;
     font-size: 2em;
+    color: white;
 }
+
 
 .chart-div {
     position: absolute;
@@ -60,6 +59,18 @@ img {
 
 .red-span {
     font-family: "Gotham Light"
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black
 }
 
 #header {

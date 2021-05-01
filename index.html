@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
     <video playsinline autoplay muted loop id="background-video">
@@ -15,9 +16,9 @@
         <div class="header-div">
             <h1 class="animate__animated animate__fadeIn animate__slower" id="header"><span style="color: rgb(125, 209, 235); font-family: Gotham">COVID</span>Trackr</h1>
             <div class="grid-container">
-                <div class="stats" style="background-color: white;">
-                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Daily cases</b></i><br /><span id="daily-cases" class="red-span"></span></p>
-                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Daily deaths</b></i><br /><span id="daily-deaths" class="red-span"></span></p>
+                <div class="stats" style="background-color: white; color: black">
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Daily cases</b></i><br /><span id="daily-cases" class="red-span"></span> <i class="fas" id="case-arrow"></i></p>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Daily deaths</b></i><br /><span id="daily-deaths" class="red-span"></span> <i class="fas" id="death-arrow"></i></p>
                     <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Total cases</b></i><br /><span id="total-cases" class="red-span"></span></p>
                     <p class="animate__animated animate__fadeIn animate__delay-1s"><i><b>Total deaths</b></i><br /><span id="total-deaths" class="red-span"></span></p>
                 </div>

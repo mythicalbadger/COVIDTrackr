@@ -9,6 +9,15 @@
 </head>
 <body>
     <p><a href="index.html">Return to main page</a></p>
+    <label style="display: inline-block">Data: </label>
+    <div style="display: inline-block">
+        <select name="data" id="data-type" style="display: block;"> 
+            <option value="NewConfirmed">Cases</option>
+            <option value="Confirmed">Total cases</option>
+            <option value="NewDeaths">Deaths</option>
+            <option value="Deaths">Total deaths</option>
+        </select>
+    </div>
     <label style="display: inline-block">Month: </label>
     <div style="display: inline-block">
         <select name="month" id="month-select" style="display: block;"> 
@@ -69,14 +78,21 @@
                 config
             );
 
-            const month = document.getElementById('load-button');
-            month.addEventListener('click', () => {
+            const button = document.getElementById('load-button');
+            button.addEventListener('click', () => {
                 var monthValue = document.getElementById("month-select").value;
                 var yearValue = document.getElementById("year-select").value;
-                
+                var dataValue = document.getElementById("data-type").value;
+
                 var dates = []
                 var cases = []
-
+                var labels = {
+                    "NewConfirmed": "Cases",
+                    "Confirmed": "Total cases",
+                    "NewDeaths": "Deaths",
+                    "Deaths": "Total deaths"
+                }
+                
                 if (monthValue != "all-data" && yearValue == "all-data") {
                     alert("Please specify a year.");
                     return
@@ -89,24 +105,25 @@
                     for (var i = 0; i < json["Data"].length; i++) {
                         if (monthValue == "all-data" && yearValue == "all-data") {
                             dates.push(json["Data"][i]["Date"]);
-                            cases.push(json["Data"][i]["NewConfirmed"]);
+                            cases.push(json["Data"][i][dataValue]);
                         }
                         else if (monthValue == "all-data") {
                             if (json["Data"][i]["Date"].split("/")[2] == yearValue) {
                                 dates.push(json["Data"][i]["Date"]);
-                                cases.push(json["Data"][i]["NewConfirmed"]);
+                                cases.push(json["Data"][i][dataValue]);
                             }
                         }
                         else {
                             if (json["Data"][i]["Date"].split("/")[0] == monthValue && json["Data"][i]["Date"].split("/")[2] == yearValue) {
                                 dates.push(json["Data"][i]["Date"]);
-                                cases.push(json["Data"][i]["NewConfirmed"]);
+                                cases.push(json["Data"][i][dataValue]);
                             }
                         }
                     }
                 }).then(() => {
                     myChart.config.data.datasets[0].data = cases;
                     myChart.config.data.labels = dates;
+                    myChart.config.data.datasets[0].label = labels[dataValue];
                     myChart.update();
                 })
             });
